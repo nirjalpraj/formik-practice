@@ -1,6 +1,7 @@
-import "./App.css";
+// import "./App.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import Channel from "./Channel";
 
 function OldYoutube() {
   const validationSchema = Yup.object({
@@ -21,7 +22,7 @@ function OldYoutube() {
     validationSchema,
   });
 
-  console.log(formik.touched);
+  console.log(formik.values);
 
   return (
     <div className="App">
@@ -52,18 +53,13 @@ function OldYoutube() {
           <div className="error">{formik.errors.email} </div>
         )}
 
-        <label htmlFor="name">Name</label>
-        <input
-          type="text"
-          id="channel"
-          name="channel"
-          onBlur={formik.handleBlur}
-          onChange={formik.handleChange}
-          value={formik.values.channel}
+        <Channel
+          handleBlur={formik.handleBlur}
+          handleChange={formik.handleChange}
+          values={formik.values}
+          touched={formik.touched}
+          errors={formik.errors}
         />
-        {formik.touched.channel && formik.errors.channel && (
-          <div className="error">{formik.errors.channel} </div>
-        )}
 
         <button type="submit">Submit</button>
       </form>

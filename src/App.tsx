@@ -1,10 +1,10 @@
 import "./App.css";
-import NewYoutube from "./components/NewYoutube";
+import OldYoutube from "./components/OldYoutube";
 
 function App() {
   return (
     <div className="App">
-      <NewYoutube />
+      <OldYoutube />
     </div>
   );
 }
